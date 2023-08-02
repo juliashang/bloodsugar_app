@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'authentication.dart';
 
 Future<Map?> getUserInfo() async{
@@ -52,6 +53,8 @@ Future<List> getSavedRecipes() async{
 Future<bool> addSavedRecipes(Map recipe) async{
   String uid = AuthenticationFunctions().UserId;
   List allSavedRecepies = await getSavedRecipes();
+  // String recipeID = UniqueKey().toString();
+  // recipe["recipeId"] = recipeID;
   allSavedRecepies.add(recipe);
   FirebaseFirestore.instance
       .collection("recipe")
@@ -59,3 +62,27 @@ Future<bool> addSavedRecipes(Map recipe) async{
       .update({'saved_recipe': allSavedRecepies});
   return true;
 }
+
+// Future<bool> deleteSavedRecipeLog(Map data) async {
+//   String uid = AuthenticationFunctions().UserId;
+//   List saved_recipes = await getSavedRecipes();
+//
+//   // Find the index of the recipe to be deleted
+//   int recipeIndex = saved_recipes.indexWhere((recipe) => recipe['recipeId'] == data['recipeId']);
+//
+//   if (recipeIndex != -1) {
+//     // If the recipe is found, remove it from the list
+//     saved_recipes.removeAt(recipeIndex);
+//
+//     // Update the Firestore document with the updated list
+//     await FirebaseFirestore.instance
+//         .collection("recipe")
+//         .doc(uid)
+//         .update({'saved_recipe': saved_recipes});
+//
+//     return true;
+//   } else {
+//     // If the recipe is not found in the list, return false
+//     return false;
+//   }
+// }

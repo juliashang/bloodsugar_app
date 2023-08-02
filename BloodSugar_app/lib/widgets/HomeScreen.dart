@@ -11,9 +11,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List recommendedRecipes = [
-    {"title":"Healthy Chocolate Cake", "ingredient":"1 cup powdered sugar \n1/2 cup sweetener \n1/2 cup cocoa powder \n2 teaspoon vanilla extract \n1/2 cup unsweetened almond milk."},
-    {"title":"Healthy carrot cake with yoghurt frosting", "ingredient":"2 cups blanched almonds \n1/4 cup brown sugar \n80g unsalted butter \n500g cream cheese \n3 eggs \n2/3 cup sugar \n500g Greek yogurt \n2 teaspoon vanilla extract \n2 tablespoon yuzu juice \n2 tbs cornflour"},
-    {"title":"Rhubarb and honey cake", "ingredient":"4 eggs \n1/2 cup honey \n1/2 cup extra virgin olive oil \n1 orange \n1 teaspoon vanilla extract \n3.5 cups almond meal \n2 tsp baking powder \n1 tbs pomegranate molasses \n1 pomegranate"},
+    {"title":"Healthy Chocolate Cake", "ingredient":"1 cup powdered sugar \n1/2 cup sweetener \n1/2 cup cocoa powder \n2 teaspoon vanilla extract \n1/2 cup unsweetened almond milk.",},
+    {"title":"Healthy carrot cake with yoghurt frosting", "ingredient":"2 cups blanched almonds \n1/4 cup brown sugar \n80g unsalted butter \n500g cream cheese \n3 eggs \n2/3 cup sugar \n500g Greek yogurt \n2 teaspoon vanilla extract \n2 tablespoon yuzu juice \n2 tbs cornflour",},
+    {"title":"Rhubarb and honey cake", "ingredient":"4 eggs \n1/2 cup honey \n1/2 cup extra virgin olive oil \n1 orange \n1 teaspoon vanilla extract \n3.5 cups almond meal \n2 tsp baking powder \n1 tbs pomegranate molasses \n1 pomegranate",},
   ];
   List savedRecipes = [];
 
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => IngredientPage(text: recipeList[index]["ingredient"], title: recipeList[index]["title"], isRecommended: isRec,)
+                              builder: (BuildContext context) => IngredientPage(text: recipeList[index]["ingredient"], title: recipeList[index]["title"], isRecommended: isRec)
                           )
                       )
                     },
