@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Blood Sugar Gradient",
       theme: ThemeData(
         primaryColor: Colors.redAccent
