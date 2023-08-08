@@ -190,6 +190,7 @@ class _ScanRecipePageState extends State<ScanRecipePage> {
       );
     }
   }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
