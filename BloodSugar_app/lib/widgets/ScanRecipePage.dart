@@ -1,3 +1,4 @@
+
 import "package:bloodsugar_app/widgets/ResultScan.dart";
 import 'package:flutter/material.dart';
 import "package:image_picker/image_picker.dart";
@@ -22,7 +23,7 @@ class _ScanRecipePageState extends State<ScanRecipePage> {
     final image =
         await _imagePicker.pickImage(
           source: ImageSource.camera,
-          imageQuality: 50
+          imageQuality: 100
         );
     setState(() {
       selectedImage = File(image!.path);
@@ -33,7 +34,7 @@ class _ScanRecipePageState extends State<ScanRecipePage> {
     final image =
     await _imagePicker.pickImage(
         source: ImageSource.gallery,
-        imageQuality: 50
+        imageQuality: 100
     );
     setState(() {
       selectedImage = File(image!.path);
@@ -169,6 +170,10 @@ class _ScanRecipePageState extends State<ScanRecipePage> {
     try {
       final inputImage = InputImage.fromFile(selectedImage!);
       final recognizedText = await textRecognizer.processImage(inputImage);
+
+      print(recognizedText.text);
+
+      print(recognizedText.blocks);
 
       Navigator.push(
         context,
