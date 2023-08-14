@@ -6,17 +6,18 @@ class IngredientPage extends StatelessWidget {
   final String text;
   final String title;
   final bool isRecommended;
-  //final String Id;
 
   const IngredientPage({super.key, required this.text, required this.title, required this.isRecommended});
 
 
   @override
   Widget build(BuildContext context) {
+
     snapBarBuilder(String snapBar){
       final snackBar = SnackBar(content: Text(snapBar));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     };
+
     saveRecipe(){
       FocusScopeNode currentFocus = FocusScope.of(context);
       if (!currentFocus.hasPrimaryFocus) {
@@ -27,16 +28,17 @@ class IngredientPage extends StatelessWidget {
         snapBarBuilder('Recipe was saved');
       });
     };
-    // DeleteRecipe(){
-    //   FocusScopeNode currentFocus = FocusScope.of(context);
-    //   if (!currentFocus.hasPrimaryFocus) {
-    //     currentFocus.unfocus();
-    //   }
-    //   Map<String, dynamic> recipeInfo = {"title": title, "ingredient": text, "recipeId":Id};
-    //   addSavedRecipes(recipeInfo).then((value) {
-    //     snapBarBuilder('Recipe was deleted');
-    //   });
-    // };
+
+    DeleteRecipe(){
+      FocusScopeNode currentFocus = FocusScope.of(context);
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
+      Map<String, dynamic> recipeInfo = {"title": title, "ingredient": text};
+      deleteSavedRecipeLog(recipeInfo).then((value) {
+        snapBarBuilder('Recipe was deleted');
+      });
+    };
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -100,15 +102,15 @@ class IngredientPage extends StatelessWidget {
                       )
                   ),
                   Container(
-                    child: isRecommended ? null
-                        // ElevatedButton(
-                        //     style: ElevatedButton.styleFrom(
-                        //       backgroundColor: Color.fromRGBO(159,169,78,1),
-                        //     ),
-                        //     onPressed: DeleteRecipe(),
-                        //     child: Text("Delete this Recipe")
-                        // )
-                        : ElevatedButton(
+                    child: isRecommended ?
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color.fromRGBO(159,169,78,1),
+                            ),
+                            onPressed: DeleteRecipe,
+                            child: Text("Delete this Recipe")
+                        )
+                          : ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromRGBO(159,169,78,1),
                       ),

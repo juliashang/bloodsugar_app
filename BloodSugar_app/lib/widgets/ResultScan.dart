@@ -12,10 +12,12 @@ class ResultScanPage extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
+
     snapBarBuilder(String snapBar){
       final snackBar = SnackBar(content: Text(snapBar));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     };
+
     saveRecipe(){
       FocusScopeNode currentFocus = FocusScope.of(context);
       if (!currentFocus.hasPrimaryFocus) {

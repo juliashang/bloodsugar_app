@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import "package:bloodsugar_app/widgets/HomeScreen.dart";
-import "package:bloodsugar_app/widgets/ProfileScreen.dart";
 import "package:bloodsugar_app/widgets/ScanRecipePage.dart";
 
 class RoutePage extends StatefulWidget {
@@ -18,7 +17,6 @@ class _RoutePageState extends State<RoutePage> {
   void initState() {
     _widgetOptions = [
       HomePage(),
-      ProfilePage(),
       ScanRecipePage()
     ];
   }
@@ -40,10 +38,6 @@ class _RoutePageState extends State<RoutePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: "profile"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.document_scanner),

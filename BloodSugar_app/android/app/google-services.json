@@ -29,6 +29,13 @@
             {
               "client_id": "618327132578-r6709m3555hlgsr98oko7ah0oib9f8al.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "618327132578-tie3hf03ss35r375ekmhr520qobcv2iq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bloodsugarapp.bloodsugarapp"
+              }
             }
           ]
         }
