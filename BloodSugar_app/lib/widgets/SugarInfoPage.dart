@@ -28,7 +28,7 @@ class _SugarInfoPageState extends State<SugarInfoPage> {
   analyzeRecipe() {
     http
         .post(
-      Uri.parse('https://glucobake-server--shangjulia.repl.co/analyze'),
+      Uri.parse('http://jshang11.pythonanywhere.com/analyze'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

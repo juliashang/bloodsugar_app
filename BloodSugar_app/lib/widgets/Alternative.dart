@@ -24,7 +24,7 @@ class _AlternativeState extends State<Alternative> {
   get_alternative() {
     http
         .post(
-      Uri.parse('https://glucobake-server--shangjulia.repl.co/alternative'),
+      Uri.parse('http://jshang11.pythonanywhere.com/alternative'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
