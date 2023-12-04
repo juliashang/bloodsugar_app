@@ -116,51 +116,100 @@ class _ScanRecipePageState extends State<ScanRecipePage> {
   Padding ImageContainer(double width, double height) {
     return Padding(
       padding: EdgeInsets.all(1),
-      child: Container(
-        height: height * 0.5,
-        width: width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.transparent,
-            border: Border.all(
-                color: Colors.black
-            )
-        ),
-        child: selectedImage == null
-          ? IconButton(
-          icon: Icon(Icons.camera_alt,
-          size: 100,
+      child: GestureDetector(
+        onTap: (){
+          ShowPicker();
+        },
+        child: Container(
+          height: height * 0.5,
+          width: width,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.transparent,
+              border: Border.all(
+                  color: Colors.black
+              )
           ),
-          onPressed: () {
-            ShowPicker();
-          },
-        )
-        : Stack(
-          children: [
-            Container(
-              child: Image.file(
-                File(selectedImage!.path)
-              ),
-              alignment: Alignment.center,
-            ),
-            Positioned(
-              right: 0.01,
-              top: 5,
-              child: MaterialButton(
-                  onPressed: (){
-                    ShowDialog();
-                  },
-                child: Icon(
-                    Icons.edit,
-                  size: 30,
-                  color: Color.fromRGBO(246, 233, 203, 1),
+          child: selectedImage == null
+            ? Column(
+              children: [
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 90,
+                    ),
+                    child: Icon(Icons.camera_alt,
+                      size: 100,
+                    ),
+                  ),
                 ),
-                shape: CircleBorder(),
-                color: Color.fromRGBO(159,169,78,1),
-              ),
+                SizedBox(
+                  height: height * 0.05,
+                ),
+                Container(
+                  height: height * 0.12,
+                  width: width * 0.8,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.black,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10
+                      ),
+                      Text(
+                          "Please upload the recipe in this format: ",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 17,
+                      ),
+                      Text(
+                        "100 grams all-purpose flour",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15
+                        ),
+                      )
+                    ],
+                  )
+                )
+            ]
             )
-          ],
-        )
+          : Stack(
+            children: [
+              Container(
+                child: Image.file(
+                  File(selectedImage!.path)
+                ),
+                alignment: Alignment.center,
+              ),
+              Positioned(
+                right: 0.01,
+                top: 5,
+                child: MaterialButton(
+                    onPressed: (){
+                      ShowDialog();
+                    },
+                  child: Icon(
+                      Icons.edit,
+                    size: 30,
+                    color: Color.fromRGBO(246, 233, 203, 1),
+                  ),
+                  shape: CircleBorder(),
+                  color: Color.fromRGBO(159,169,78,1),
+                ),
+              )
+            ],
+          )
+        ),
       ),
     );
   }
