@@ -48,7 +48,7 @@ class _ScanRecipePageState extends State<ScanRecipePage> {
           return Wrap(
             children: [
               ListTile(
-                leading: Icon(Icons.photo),
+                leading:Icon(Icons.photo),
                 title: Text("Photo Library"),
                 onTap: (){
                   ImageFromLibrary();
